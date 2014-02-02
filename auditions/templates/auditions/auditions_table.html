@@ -1,0 +1,31 @@
+{% if audition_list %}
+    <table class="table" align="center" id="auditions">
+        <th>Company</th>
+        <th>City</th>
+        <th >State</th>
+        <th>Time</th>
+        <th>Audition URL</th>
+        {% for audition in audition_list %}
+            <tr>
+                <td>
+                    <a href="{{ audition.company.url }}">{{ audition.company.name }}</a>
+                </td>
+                <td>
+                    {{ audition.city }}
+                </td>
+                <td>
+                    {{ audition.state }}
+                </td>
+                <td>
+                    {{ audition.time }}
+                </td>
+                <td>
+                    <a href="{{ audition.url }}">{{ audition.url }}</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+    </table>
+    {% else %}
+    No audition information is available at this time.
+{% endif %}
